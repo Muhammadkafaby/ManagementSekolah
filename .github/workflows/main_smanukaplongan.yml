@@ -63,4 +63,4 @@ jobs:
           app-name: 'SMANUKAPLONGAN'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_1365e7f3fa7d462ca933b6e78fab868a }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2B13B84AF6904A9F955000323D766BBE }}
