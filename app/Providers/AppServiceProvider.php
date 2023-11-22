@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,6 +28,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (App::environment(['production'])) {
+            URL::forceScheme('https');
+        }
 
          Paginator::useBootstrap();
 
@@ -67,6 +72,6 @@ class AppServiceProvider extends ServiceProvider
         date_default_timezone_set('Asia/Jakarta');
 
         // With locale
-        Carbon::parse('2019-03-01')->translatedFormat('d F Y'); //Output: "01 Mare
+        Carbon::parse('2019-03-01')->translatedFormat('d F Y'); //Output: "01 Maret 2019"
     }
 }
