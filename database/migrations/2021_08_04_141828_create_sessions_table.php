@@ -14,14 +14,12 @@ class CreateSessionsTable extends Migration
     public function up()
 {
     Schema::create('sessions', function (Blueprint $table) {
-        
-            $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->text('payload');
-            $table->integer('last_activity')->index();
-        
+        $table->string('id')->primary(); // Menggunakan 'id' sebagai primary key string
+        $table->foreignId('user_id')->nullable()->index();
+        $table->string('ip_address', 45)->nullable();
+        $table->text('user_agent')->nullable();
+        $table->text('payload');
+        $table->bigInteger('last_activity')->index(); // Menggunakan 'bigInteger' untuk 'last_activity'
     });
 }
 
