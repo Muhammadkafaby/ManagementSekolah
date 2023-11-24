@@ -22,14 +22,13 @@
                 </ul>
             </li>
 
-            <li class="nav-item dropdown {{$pages=='mapel' || $pages=='silabus' || $pages=='penilaian' ? 'active' : ''}}">
+            <li class="nav-item dropdown {{$pages=='mapel' || $pages=='silabus' ? 'active' : ''}}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>   <span>Pembelajaran</span></a>
                 <ul class="dropdown-menu">
 
                     <li {{$pages=='mapel' ? 'class=active' : ''}}><a class="nav-link" href="{{route('mapel')}}"><i class="fab fa-monero"></i> <span>Mata Pelajaran</span></a></li>
                     <li {{$pages=='silabus' ? 'class=active' : ''}}><a class="nav-link" href="{{route('silabus')}}"><i class="fas fa-microchip"></i> <span>KD - Mapel</span></a></li>
-                    <li {{$pages=='penilaian' ? 'class=active' : ''}}><a class="nav-link" href="{{route('penilaian')}}"><i class="far fa-star"></i><span>Penilaian</span></a></li>
-                    <li {{$pages=='penilaian' ? 'class=active' : ''}}><a class="nav-link" href="#"><i class="far fa-calendar-check"></i> <span>Eskul</span></a></li>
+                  
                 </ul>
             </li>
             <li class="nav-item dropdown  {{$pages=='absensi' || $pages=='pelanggaran'  ? 'active' : ''}}">

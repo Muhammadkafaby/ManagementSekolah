@@ -31,31 +31,38 @@ class siswaekskulcontroller extends Controller
         });
     }
     public function index(Request $request)
-    {
-        $datasiswa=siswa::where('nomerinduk',Auth::user()->nomerinduk)->first();
+{
+    $datasiswa = siswa::where('nomerinduk', Auth::user()->nomerinduk)->first();
 
-        #WAJIB
-        $pages='materibelajar';
-        $datas=ekskuldetail::with('ekskul')->with('siswa')
-        //->avg('nilai')
-        ->where('siswa_id',$datasiswa->id)
+    #WAJIB
+    $pages = 'materibelajar';
+    $datas = ekskuldetail::with('ekskul')->with('siswa')
+        ->where('siswa_id', $datasiswa->id)
         ->paginate(Fungsi::paginationjml());
-        foreach($datas as $dat){
-            $idg=$dat->ekskul->guru_id;
-            if($dat->nilai != null){
-                $nilai=$dat->nilai / $dat->count();
-            }else{
-                $nilai='0';
-            }
-        }
-        $guru=guru::where('id',$idg)->get();
-        foreach($guru as $gur){
-            $namaguru=$gur->nama;
-        }
-        //$caridataajar=dataajar::where('kelas_id',$datasiswa->kelas_id)->get();
 
-        return view('pages.siswa.dataajar.ekskul.index',compact('datas','request','pages','namaguru','nilai'));
+    $idg = null;
+    $nilai = ''; // Initialize $nilai variable
+
+    foreach ($datas as $dat) {
+        $idg = $dat->ekskul->guru_id;
+        if ($dat->nilai != null) {
+            $nilai = $dat->nilai / $dat->count();
+        } else {
+            $nilai = '0';
+        }
     }
+
+    $namaguru = '';
+    if ($idg !== null) {
+        $guru = guru::where('id', $idg)->get();
+        foreach ($guru as $gur) {
+            $namaguru = $gur->nama;
+        }
+    }
+
+    return view('pages.siswa.dataajar.ekskul.index', compact('datas', 'request', 'pages', 'namaguru', 'nilai'));
+}
+
     public function cari(Request $request)
     {
        // dd($request);

@@ -161,21 +161,21 @@ Pengaturan
                         </div>
 
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="nominaltagihandefault">Nominal Default Tagihan Atur<br>{{number_format($datas->nominaltagihandefault,2);}} <code>*)</code></label>
+                            <label for="nominaltagihandefault">Nominal Default Tagihan Atur<br>{{number_format($datas->nominaltagihandefault,2)}} <code>(*)</code></label>
                             <input type="number" name="nominaltagihandefault" id="nominaltagihandefault" class="form-control @error('nominaltagihandefault') is-invalid @enderror" value="{{$datas->nominaltagihandefault}}" required >
                             @error('nominaltagihandefault')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror
                         </div>
 
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="minimalpembayaranujian">Minimal Pembayaran Ujian<br> <code>*)</code></label>
+                            <label for="minimalpembayaranujian">Minimal Pembayaran Ujian<br> <code>(*)</code></label>
                             <input type="number" name="minimalpembayaranujian" id="minimalpembayaranujian" class="form-control @error('minimalpembayaranujian') is-invalid @enderror" value="{{$datas->minimalpembayaranujian}}" required >
                             @error('minimalpembayaranujian')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror
                         </div>
 
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="passdefaultsiswa">Password Siswa Default <code>*)</code></label>
+                            <label for="passdefaultsiswa">Password Siswa Default <code>(*)</code></label>
                             <input type="text" name="passdefaultsiswa" id="passdefaultsiswa" class="form-control @error('passdefaultsiswa') is-invalid @enderror" value="{{$datas->passdefaultsiswa}}" required>
                             @error('passdefaultsiswa')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror

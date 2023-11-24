@@ -155,7 +155,7 @@ Absensi {{$kelas->tingkatan}} {{$kelas->jurusan}} {{$kelas->suffix}}
                 </div>
 
               <div>
-                <p>N.B : <i>Warna merah hari sabtu dan minggu</i>.</p>
+                <p>N.B : <i>Warna merah hari Weekend</i>.</p>
               </div>
                                 </div>
 
